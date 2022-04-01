@@ -35,7 +35,8 @@ class Client {
         $this->num_retries = $num_retries;
         $this->wait_seconds = $wait_seconds;
 
-        $this->config = Configuration::getDefaultConfiguration()->setApiKey('api_key', $this->api_key);
+        $this->config = clone Configuration::getDefaultConfiguration();
+        $this->config->setApiKey('api_key', $this->api_key);
 
         foreach ($this->subclient_names as $subclient_name) {
             eval("\$api_instance = new Klaviyo\API\\${subclient_name}Api(new GuzzleHttp\Client(),\$this->config);");
