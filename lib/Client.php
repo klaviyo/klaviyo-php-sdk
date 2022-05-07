@@ -13,7 +13,15 @@ use Klaviyo\API\DataPrivacyApi;
 use Klaviyo\API\CampaignsApi;
 use Klaviyo\API\TemplatesApi;
 
-
+/**
+ * @property TrackIdentifyApi $TrackIdentify
+ * @property MetricsApi $Metrics
+ * @property ProfilesApi $Profiles
+ * @property ListsSegmentsApi $ListsSegments
+ * @property DataPrivacyApi $DataPrivacy
+ * @property CampaignsApi $Campaigns
+ * @property TemplatesApi $Templates
+ */
 class Client {
     public $api_key = "API_KEY";
     public $subclient_names = ['TrackIdentify', 'Metrics', 'Profiles', 'ListsSegments', 'DataPrivacy', 'Campaigns', 'Templates'];
