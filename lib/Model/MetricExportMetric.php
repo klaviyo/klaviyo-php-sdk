@@ -1,6 +1,6 @@
 <?php
 /**
- * PrivacyId
+ * MetricExportMetric
  *
  * PHP version 7.3
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Klaviyo\ObjectSerializer;
 
 /**
- * PrivacyId Class Doc Comment
+ * MetricExportMetric Class Doc Comment
  *
  * @category Class
  * @package  Klaviyo
@@ -42,7 +42,7 @@ use \Klaviyo\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
+class MetricExportMetric implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'privacy_id';
+    protected static $openAPIModelName = 'metric_export_metric';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,12 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'person_id' => 'string'
+        'object' => 'string',
+        'id' => 'string',
+        'name' => 'string',
+        'integration' => '\Klaviyo\Model\MetricIntegration',
+        'created' => 'string',
+        'updated' => 'string'
     ];
 
     /**
@@ -70,7 +75,12 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'person_id' => null
+        'object' => null,
+        'id' => null,
+        'name' => null,
+        'integration' => null,
+        'created' => null,
+        'updated' => null
     ];
 
     /**
@@ -100,7 +110,12 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'person_id' => 'person_id'
+        'object' => 'object',
+        'id' => 'id',
+        'name' => 'name',
+        'integration' => 'integration',
+        'created' => 'created',
+        'updated' => 'updated'
     ];
 
     /**
@@ -109,7 +124,12 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'person_id' => 'setPersonId'
+        'object' => 'setObject',
+        'id' => 'setId',
+        'name' => 'setName',
+        'integration' => 'setIntegration',
+        'created' => 'setCreated',
+        'updated' => 'setUpdated'
     ];
 
     /**
@@ -118,7 +138,12 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'person_id' => 'getPersonId'
+        'object' => 'getObject',
+        'id' => 'getId',
+        'name' => 'getName',
+        'integration' => 'getIntegration',
+        'created' => 'getCreated',
+        'updated' => 'getUpdated'
     ];
 
     /**
@@ -178,7 +203,12 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['person_id'] = $data['person_id'] ?? null;
+        $this->container['object'] = $data['object'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['integration'] = $data['integration'] ?? null;
+        $this->container['created'] = $data['created'] ?? null;
+        $this->container['updated'] = $data['updated'] ?? null;
     }
 
     /**
@@ -206,25 +236,145 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets person_id
+     * Gets object
      *
      * @return string|null
      */
-    public function getPersonId()
+    public function getObject()
     {
-        return $this->container['person_id'];
+        return $this->container['object'];
     }
 
     /**
-     * Sets person_id
+     * Sets object
      *
-     * @param string|null $person_id person_id
+     * @param string|null $object object
      *
      * @return self
      */
-    public function setPersonId($person_id)
+    public function setObject($object)
     {
-        $this->container['person_id'] = $person_id;
+        $this->container['object'] = $object;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name name
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets integration
+     *
+     * @return \Klaviyo\Model\MetricIntegration|null
+     */
+    public function getIntegration()
+    {
+        return $this->container['integration'];
+    }
+
+    /**
+     * Sets integration
+     *
+     * @param \Klaviyo\Model\MetricIntegration|null $integration integration
+     *
+     * @return self
+     */
+    public function setIntegration($integration)
+    {
+        $this->container['integration'] = $integration;
+
+        return $this;
+    }
+
+    /**
+     * Gets created
+     *
+     * @return string|null
+     */
+    public function getCreated()
+    {
+        return $this->container['created'];
+    }
+
+    /**
+     * Sets created
+     *
+     * @param string|null $created created
+     *
+     * @return self
+     */
+    public function setCreated($created)
+    {
+        $this->container['created'] = $created;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated
+     *
+     * @return string|null
+     */
+    public function getUpdated()
+    {
+        return $this->container['updated'];
+    }
+
+    /**
+     * Sets updated
+     *
+     * @param string|null $updated updated
+     *
+     * @return self
+     */
+    public function setUpdated($updated)
+    {
+        $this->container['updated'] = $updated;
 
         return $this;
     }

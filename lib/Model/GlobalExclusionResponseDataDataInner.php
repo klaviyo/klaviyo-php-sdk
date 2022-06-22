@@ -1,6 +1,6 @@
 <?php
 /**
- * PrivacyId
+ * GlobalExclusionResponseDataDataInner
  *
  * PHP version 7.3
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Klaviyo\ObjectSerializer;
 
 /**
- * PrivacyId Class Doc Comment
+ * GlobalExclusionResponseDataDataInner Class Doc Comment
  *
  * @category Class
  * @package  Klaviyo
@@ -42,7 +42,7 @@ use \Klaviyo\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
+class GlobalExclusionResponseDataDataInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'privacy_id';
+    protected static $openAPIModelName = 'global_exclusion_response_data_data_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,10 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'person_id' => 'string'
+        'object' => 'string',
+        'email' => 'string',
+        'reason' => 'string',
+        'timestamp' => 'string'
     ];
 
     /**
@@ -70,7 +73,10 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'person_id' => null
+        'object' => null,
+        'email' => null,
+        'reason' => null,
+        'timestamp' => null
     ];
 
     /**
@@ -100,7 +106,10 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'person_id' => 'person_id'
+        'object' => 'object',
+        'email' => 'email',
+        'reason' => 'reason',
+        'timestamp' => 'timestamp'
     ];
 
     /**
@@ -109,7 +118,10 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'person_id' => 'setPersonId'
+        'object' => 'setObject',
+        'email' => 'setEmail',
+        'reason' => 'setReason',
+        'timestamp' => 'setTimestamp'
     ];
 
     /**
@@ -118,7 +130,10 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'person_id' => 'getPersonId'
+        'object' => 'getObject',
+        'email' => 'getEmail',
+        'reason' => 'getReason',
+        'timestamp' => 'getTimestamp'
     ];
 
     /**
@@ -178,7 +193,10 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['person_id'] = $data['person_id'] ?? null;
+        $this->container['object'] = $data['object'] ?? null;
+        $this->container['email'] = $data['email'] ?? null;
+        $this->container['reason'] = $data['reason'] ?? null;
+        $this->container['timestamp'] = $data['timestamp'] ?? null;
     }
 
     /**
@@ -206,25 +224,97 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets person_id
+     * Gets object
      *
      * @return string|null
      */
-    public function getPersonId()
+    public function getObject()
     {
-        return $this->container['person_id'];
+        return $this->container['object'];
     }
 
     /**
-     * Sets person_id
+     * Sets object
      *
-     * @param string|null $person_id person_id
+     * @param string|null $object object
      *
      * @return self
      */
-    public function setPersonId($person_id)
+    public function setObject($object)
     {
-        $this->container['person_id'] = $person_id;
+        $this->container['object'] = $object;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return string|null
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param string|null $email email
+     *
+     * @return self
+     */
+    public function setEmail($email)
+    {
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets reason
+     *
+     * @return string|null
+     */
+    public function getReason()
+    {
+        return $this->container['reason'];
+    }
+
+    /**
+     * Sets reason
+     *
+     * @param string|null $reason reason
+     *
+     * @return self
+     */
+    public function setReason($reason)
+    {
+        $this->container['reason'] = $reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets timestamp
+     *
+     * @return string|null
+     */
+    public function getTimestamp()
+    {
+        return $this->container['timestamp'];
+    }
+
+    /**
+     * Sets timestamp
+     *
+     * @param string|null $timestamp timestamp
+     *
+     * @return self
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->container['timestamp'] = $timestamp;
 
         return $this;
     }

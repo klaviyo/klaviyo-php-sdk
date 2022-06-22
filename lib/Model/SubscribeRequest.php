@@ -1,6 +1,6 @@
 <?php
 /**
- * PrivacyId
+ * SubscribeRequest
  *
  * PHP version 7.3
  *
@@ -32,9 +32,10 @@ use \ArrayAccess;
 use \Klaviyo\ObjectSerializer;
 
 /**
- * PrivacyId Class Doc Comment
+ * SubscribeRequest Class Doc Comment
  *
  * @category Class
+ * @description The profiles that you would like to subscribe. Each object in the list must have either an email or phone number key. You can also provide additional properties as key-value pairs. If you are a GDPR compliant business, you will need to include &#x60;$consent&#x60; in your API call. &#x60;$consent&#x60; is a list-type, Klaviyo special property and only accepts some subset of the following: &#x60;[\&quot;email\&quot;, \&quot;web\&quot;, \&quot;sms\&quot;, \&quot;directmail\&quot;, \&quot;mobile\&quot;]&#x60;. If you are updating consent for a phone number or would like to send an opt-in SMS to the profile (for double opt-in lists), include an &#x60;sms_consent&#x60; key in the profile with a value of &#x60;true&#x60; or &#x60;false&#x60;.
  * @package  Klaviyo
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -42,7 +43,7 @@ use \Klaviyo\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
+class SubscribeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +52,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'privacy_id';
+    protected static $openAPIModelName = 'subscribe_request';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +60,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'person_id' => 'string'
+        'profiles' => 'array<string,mixed>[]'
     ];
 
     /**
@@ -70,7 +71,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'person_id' => null
+        'profiles' => null
     ];
 
     /**
@@ -100,7 +101,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'person_id' => 'person_id'
+        'profiles' => 'profiles'
     ];
 
     /**
@@ -109,7 +110,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'person_id' => 'setPersonId'
+        'profiles' => 'setProfiles'
     ];
 
     /**
@@ -118,7 +119,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'person_id' => 'getPersonId'
+        'profiles' => 'getProfiles'
     ];
 
     /**
@@ -178,7 +179,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['person_id'] = $data['person_id'] ?? null;
+        $this->container['profiles'] = $data['profiles'] ?? null;
     }
 
     /**
@@ -190,6 +191,9 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['profiles'] === null) {
+            $invalidProperties[] = "'profiles' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -206,25 +210,25 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets person_id
+     * Gets profiles
      *
-     * @return string|null
+     * @return array<string,mixed>[]
      */
-    public function getPersonId()
+    public function getProfiles()
     {
-        return $this->container['person_id'];
+        return $this->container['profiles'];
     }
 
     /**
-     * Sets person_id
+     * Sets profiles
      *
-     * @param string|null $person_id person_id
+     * @param array<string,mixed>[] $profiles profiles
      *
      * @return self
      */
-    public function setPersonId($person_id)
+    public function setProfiles($profiles)
     {
-        $this->container['person_id'] = $person_id;
+        $this->container['profiles'] = $profiles;
 
         return $this;
     }

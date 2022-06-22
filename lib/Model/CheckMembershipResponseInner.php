@@ -1,6 +1,6 @@
 <?php
 /**
- * PrivacyId
+ * CheckMembershipResponseInner
  *
  * PHP version 7.3
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Klaviyo\ObjectSerializer;
 
 /**
- * PrivacyId Class Doc Comment
+ * CheckMembershipResponseInner Class Doc Comment
  *
  * @category Class
  * @package  Klaviyo
@@ -42,7 +42,7 @@ use \Klaviyo\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
+class CheckMembershipResponseInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'privacy_id';
+    protected static $openAPIModelName = 'check_membership_response_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,8 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'person_id' => 'string'
+        'id' => 'string',
+        'created' => 'string'
     ];
 
     /**
@@ -70,7 +71,8 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'person_id' => null
+        'id' => null,
+        'created' => null
     ];
 
     /**
@@ -100,7 +102,8 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'person_id' => 'person_id'
+        'id' => 'id',
+        'created' => 'created'
     ];
 
     /**
@@ -109,7 +112,8 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'person_id' => 'setPersonId'
+        'id' => 'setId',
+        'created' => 'setCreated'
     ];
 
     /**
@@ -118,7 +122,8 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'person_id' => 'getPersonId'
+        'id' => 'getId',
+        'created' => 'getCreated'
     ];
 
     /**
@@ -178,7 +183,8 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['person_id'] = $data['person_id'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
+        $this->container['created'] = $data['created'] ?? null;
     }
 
     /**
@@ -206,25 +212,49 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets person_id
+     * Gets id
      *
      * @return string|null
      */
-    public function getPersonId()
+    public function getId()
     {
-        return $this->container['person_id'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets person_id
+     * Sets id
      *
-     * @param string|null $person_id person_id
+     * @param string|null $id id
      *
      * @return self
      */
-    public function setPersonId($person_id)
+    public function setId($id)
     {
-        $this->container['person_id'] = $person_id;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets created
+     *
+     * @return string|null
+     */
+    public function getCreated()
+    {
+        return $this->container['created'];
+    }
+
+    /**
+     * Sets created
+     *
+     * @param string|null $created created
+     *
+     * @return self
+     */
+    public function setCreated($created)
+    {
+        $this->container['created'] = $created;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * PrivacyId
+ * MetricExportResultsInner
  *
  * PHP version 7.3
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Klaviyo\ObjectSerializer;
 
 /**
- * PrivacyId Class Doc Comment
+ * MetricExportResultsInner Class Doc Comment
  *
  * @category Class
  * @package  Klaviyo
@@ -42,7 +42,7 @@ use \Klaviyo\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
+class MetricExportResultsInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'privacy_id';
+    protected static $openAPIModelName = 'metric_export_results_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,8 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'person_id' => 'string'
+        'segment' => 'string',
+        'data' => '\Klaviyo\Model\MetricExportResultsInnerDataInner[]'
     ];
 
     /**
@@ -70,7 +71,8 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'person_id' => null
+        'segment' => null,
+        'data' => null
     ];
 
     /**
@@ -100,7 +102,8 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'person_id' => 'person_id'
+        'segment' => 'segment',
+        'data' => 'data'
     ];
 
     /**
@@ -109,7 +112,8 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'person_id' => 'setPersonId'
+        'segment' => 'setSegment',
+        'data' => 'setData'
     ];
 
     /**
@@ -118,7 +122,8 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'person_id' => 'getPersonId'
+        'segment' => 'getSegment',
+        'data' => 'getData'
     ];
 
     /**
@@ -178,7 +183,8 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['person_id'] = $data['person_id'] ?? null;
+        $this->container['segment'] = $data['segment'] ?? null;
+        $this->container['data'] = $data['data'] ?? null;
     }
 
     /**
@@ -206,25 +212,49 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets person_id
+     * Gets segment
      *
      * @return string|null
      */
-    public function getPersonId()
+    public function getSegment()
     {
-        return $this->container['person_id'];
+        return $this->container['segment'];
     }
 
     /**
-     * Sets person_id
+     * Sets segment
      *
-     * @param string|null $person_id person_id
+     * @param string|null $segment segment
      *
      * @return self
      */
-    public function setPersonId($person_id)
+    public function setSegment($segment)
     {
-        $this->container['person_id'] = $person_id;
+        $this->container['segment'] = $segment;
+
+        return $this;
+    }
+
+    /**
+     * Gets data
+     *
+     * @return \Klaviyo\Model\MetricExportResultsInnerDataInner[]|null
+     */
+    public function getData()
+    {
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param \Klaviyo\Model\MetricExportResultsInnerDataInner[]|null $data data
+     *
+     * @return self
+     */
+    public function setData($data)
+    {
+        $this->container['data'] = $data;
 
         return $this;
     }

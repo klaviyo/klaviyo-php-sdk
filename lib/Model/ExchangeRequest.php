@@ -1,6 +1,6 @@
 <?php
 /**
- * PrivacyId
+ * ExchangeRequest
  *
  * PHP version 7.3
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Klaviyo\ObjectSerializer;
 
 /**
- * PrivacyId Class Doc Comment
+ * ExchangeRequest Class Doc Comment
  *
  * @category Class
  * @package  Klaviyo
@@ -42,7 +42,7 @@ use \Klaviyo\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
+class ExchangeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'privacy_id';
+    protected static $openAPIModelName = 'exchange_request';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'person_id' => 'string'
+        'exchange_id' => 'string'
     ];
 
     /**
@@ -70,7 +70,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'person_id' => null
+        'exchange_id' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'person_id' => 'person_id'
+        'exchange_id' => 'exchange_id'
     ];
 
     /**
@@ -109,7 +109,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'person_id' => 'setPersonId'
+        'exchange_id' => 'setExchangeId'
     ];
 
     /**
@@ -118,7 +118,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'person_id' => 'getPersonId'
+        'exchange_id' => 'getExchangeId'
     ];
 
     /**
@@ -178,7 +178,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['person_id'] = $data['person_id'] ?? null;
+        $this->container['exchange_id'] = $data['exchange_id'] ?? 'EXCHANGE_ID';
     }
 
     /**
@@ -190,6 +190,9 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['exchange_id'] === null) {
+            $invalidProperties[] = "'exchange_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -206,25 +209,25 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets person_id
+     * Gets exchange_id
      *
-     * @return string|null
+     * @return string
      */
-    public function getPersonId()
+    public function getExchangeId()
     {
-        return $this->container['person_id'];
+        return $this->container['exchange_id'];
     }
 
     /**
-     * Sets person_id
+     * Sets exchange_id
      *
-     * @param string|null $person_id person_id
+     * @param string $exchange_id exchange_id
      *
      * @return self
      */
-    public function setPersonId($person_id)
+    public function setExchangeId($exchange_id)
     {
-        $this->container['person_id'] = $person_id;
+        $this->container['exchange_id'] = $exchange_id;
 
         return $this;
     }

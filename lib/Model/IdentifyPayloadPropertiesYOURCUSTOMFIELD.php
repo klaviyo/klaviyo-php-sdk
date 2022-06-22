@@ -1,6 +1,6 @@
 <?php
 /**
- * PrivacyId
+ * IdentifyPayloadPropertiesYOURCUSTOMFIELD
  *
  * PHP version 7.3
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Klaviyo\ObjectSerializer;
 
 /**
- * PrivacyId Class Doc Comment
+ * IdentifyPayloadPropertiesYOURCUSTOMFIELD Class Doc Comment
  *
  * @category Class
  * @package  Klaviyo
@@ -42,7 +42,7 @@ use \Klaviyo\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
+class IdentifyPayloadPropertiesYOURCUSTOMFIELD implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'privacy_id';
+    protected static $openAPIModelName = 'identify_payload_properties_YOUR_CUSTOM_FIELD';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'person_id' => 'string'
+        
     ];
 
     /**
@@ -70,7 +70,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'person_id' => null
+        
     ];
 
     /**
@@ -100,7 +100,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'person_id' => 'person_id'
+        
     ];
 
     /**
@@ -109,7 +109,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'person_id' => 'setPersonId'
+        
     ];
 
     /**
@@ -118,7 +118,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'person_id' => 'getPersonId'
+        
     ];
 
     /**
@@ -178,7 +178,6 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['person_id'] = $data['person_id'] ?? null;
     }
 
     /**
@@ -204,30 +203,6 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets person_id
-     *
-     * @return string|null
-     */
-    public function getPersonId()
-    {
-        return $this->container['person_id'];
-    }
-
-    /**
-     * Sets person_id
-     *
-     * @param string|null $person_id person_id
-     *
-     * @return self
-     */
-    public function setPersonId($person_id)
-    {
-        $this->container['person_id'] = $person_id;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

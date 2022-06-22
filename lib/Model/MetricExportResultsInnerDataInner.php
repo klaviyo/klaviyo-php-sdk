@@ -1,6 +1,6 @@
 <?php
 /**
- * PrivacyId
+ * MetricExportResultsInnerDataInner
  *
  * PHP version 7.3
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Klaviyo\ObjectSerializer;
 
 /**
- * PrivacyId Class Doc Comment
+ * MetricExportResultsInnerDataInner Class Doc Comment
  *
  * @category Class
  * @package  Klaviyo
@@ -42,7 +42,7 @@ use \Klaviyo\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
+class MetricExportResultsInnerDataInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'privacy_id';
+    protected static $openAPIModelName = 'metric_export_results_inner_data_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,8 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'person_id' => 'string'
+        'date' => 'string',
+        'values' => 'float[]'
     ];
 
     /**
@@ -70,7 +71,8 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'person_id' => null
+        'date' => null,
+        'values' => null
     ];
 
     /**
@@ -100,7 +102,8 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'person_id' => 'person_id'
+        'date' => 'date',
+        'values' => 'values'
     ];
 
     /**
@@ -109,7 +112,8 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'person_id' => 'setPersonId'
+        'date' => 'setDate',
+        'values' => 'setValues'
     ];
 
     /**
@@ -118,7 +122,8 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'person_id' => 'getPersonId'
+        'date' => 'getDate',
+        'values' => 'getValues'
     ];
 
     /**
@@ -178,7 +183,8 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['person_id'] = $data['person_id'] ?? null;
+        $this->container['date'] = $data['date'] ?? null;
+        $this->container['values'] = $data['values'] ?? null;
     }
 
     /**
@@ -206,25 +212,49 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets person_id
+     * Gets date
      *
      * @return string|null
      */
-    public function getPersonId()
+    public function getDate()
     {
-        return $this->container['person_id'];
+        return $this->container['date'];
     }
 
     /**
-     * Sets person_id
+     * Sets date
      *
-     * @param string|null $person_id person_id
+     * @param string|null $date date
      *
      * @return self
      */
-    public function setPersonId($person_id)
+    public function setDate($date)
     {
-        $this->container['person_id'] = $person_id;
+        $this->container['date'] = $date;
+
+        return $this;
+    }
+
+    /**
+     * Gets values
+     *
+     * @return float[]|null
+     */
+    public function getValues()
+    {
+        return $this->container['values'];
+    }
+
+    /**
+     * Sets values
+     *
+     * @param float[]|null $values values
+     *
+     * @return self
+     */
+    public function setValues($values)
+    {
+        $this->container['values'] = $values;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 # Klaviyo PHP SDK
 
-- SDK version: 1.0.1.20220329
+- SDK version: 1.0.2.20220329
 
 ## Helpful Resources
 
@@ -56,24 +56,14 @@ You can install this package using either [Packagist](https://packagist.org/pack
 
 You can install this library using Packagist.
 
-### optional 1a: with composer installed
-
 If you have composer installed, you can run: `composer require klaviyo/sdk`
-
-### optional 1b: without composer installed
-
-If you don't have composer installed, you can get an executable version by running `bash composer.sh`
-
-This will download an executable version of composer that you can use by running `php composer.phar` wherever you would otherwise run `composer`.
-
-You can then install the library from Packagist by running `php composer.phar require klaviyo/sdk`
 
 ## Option 2: Source code
 
 You can also install this library directly from source code, without using the Packagist package, as follows:
 
 1. cloning this repo
-2. running `bash composer.json`
+2. running `composer update` (within the repo)
 
 # Usage Example
 
@@ -710,6 +700,23 @@ client->Profiles->getProfile($person_id);
 
 
 
+#### [Get Profile ID](https://developers.klaviyo.com/en/reference/get-profile-id)
+
+```php
+
+## Keyword Arguments
+
+# $email | string
+# $phone_number | string
+# $external_id | string
+
+client->Profiles->getProfileId();
+```
+
+
+
+
+
 #### [Get Profile's Events for a Specific Metric](https://developers.klaviyo.com/en/reference/profile-metric-timeline)
 
 ```php
@@ -760,7 +767,7 @@ client->Profiles->profileMetricsTimeline($person_id);
 
 ## Keyword Arguments
 
-# $params | array&lt;string,object&gt;
+# $params | array&lt;string,mixed&gt;
 
 client->Profiles->updateProfile($person_id);
 ```

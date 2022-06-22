@@ -1,6 +1,6 @@
 <?php
 /**
- * PrivacyId
+ * RemoveMembersRequest
  *
  * PHP version 7.3
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Klaviyo\ObjectSerializer;
 
 /**
- * PrivacyId Class Doc Comment
+ * RemoveMembersRequest Class Doc Comment
  *
  * @category Class
  * @package  Klaviyo
@@ -42,7 +42,7 @@ use \Klaviyo\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
+class RemoveMembersRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'privacy_id';
+    protected static $openAPIModelName = 'remove_members_request';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,9 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'person_id' => 'string'
+        'emails' => 'string[]',
+        'phone_numbers' => 'string[]',
+        'push_tokens' => 'string[]'
     ];
 
     /**
@@ -70,7 +72,9 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'person_id' => null
+        'emails' => null,
+        'phone_numbers' => null,
+        'push_tokens' => null
     ];
 
     /**
@@ -100,7 +104,9 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'person_id' => 'person_id'
+        'emails' => 'emails',
+        'phone_numbers' => 'phone_numbers',
+        'push_tokens' => 'push_tokens'
     ];
 
     /**
@@ -109,7 +115,9 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'person_id' => 'setPersonId'
+        'emails' => 'setEmails',
+        'phone_numbers' => 'setPhoneNumbers',
+        'push_tokens' => 'setPushTokens'
     ];
 
     /**
@@ -118,7 +126,9 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'person_id' => 'getPersonId'
+        'emails' => 'getEmails',
+        'phone_numbers' => 'getPhoneNumbers',
+        'push_tokens' => 'getPushTokens'
     ];
 
     /**
@@ -178,7 +188,9 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['person_id'] = $data['person_id'] ?? null;
+        $this->container['emails'] = $data['emails'] ?? null;
+        $this->container['phone_numbers'] = $data['phone_numbers'] ?? null;
+        $this->container['push_tokens'] = $data['push_tokens'] ?? null;
     }
 
     /**
@@ -189,6 +201,18 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['emails']) && (count($this->container['emails']) < 0)) {
+            $invalidProperties[] = "invalid value for 'emails', number of items must be greater than or equal to 0.";
+        }
+
+        if (!is_null($this->container['phone_numbers']) && (count($this->container['phone_numbers']) < 0)) {
+            $invalidProperties[] = "invalid value for 'phone_numbers', number of items must be greater than or equal to 0.";
+        }
+
+        if (!is_null($this->container['push_tokens']) && (count($this->container['push_tokens']) < 0)) {
+            $invalidProperties[] = "invalid value for 'push_tokens', number of items must be greater than or equal to 0.";
+        }
 
         return $invalidProperties;
     }
@@ -206,25 +230,88 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets person_id
+     * Gets emails
      *
-     * @return string|null
+     * @return string[]|null
      */
-    public function getPersonId()
+    public function getEmails()
     {
-        return $this->container['person_id'];
+        return $this->container['emails'];
     }
 
     /**
-     * Sets person_id
+     * Sets emails
      *
-     * @param string|null $person_id person_id
+     * @param string[]|null $emails emails
      *
      * @return self
      */
-    public function setPersonId($person_id)
+    public function setEmails($emails)
     {
-        $this->container['person_id'] = $person_id;
+
+
+        if (!is_null($emails) && (count($emails) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $emails when calling RemoveMembersRequest., number of items must be greater than or equal to 0.');
+        }
+        $this->container['emails'] = $emails;
+
+        return $this;
+    }
+
+    /**
+     * Gets phone_numbers
+     *
+     * @return string[]|null
+     */
+    public function getPhoneNumbers()
+    {
+        return $this->container['phone_numbers'];
+    }
+
+    /**
+     * Sets phone_numbers
+     *
+     * @param string[]|null $phone_numbers phone_numbers
+     *
+     * @return self
+     */
+    public function setPhoneNumbers($phone_numbers)
+    {
+
+
+        if (!is_null($phone_numbers) && (count($phone_numbers) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $phone_numbers when calling RemoveMembersRequest., number of items must be greater than or equal to 0.');
+        }
+        $this->container['phone_numbers'] = $phone_numbers;
+
+        return $this;
+    }
+
+    /**
+     * Gets push_tokens
+     *
+     * @return string[]|null
+     */
+    public function getPushTokens()
+    {
+        return $this->container['push_tokens'];
+    }
+
+    /**
+     * Sets push_tokens
+     *
+     * @param string[]|null $push_tokens push_tokens
+     *
+     * @return self
+     */
+    public function setPushTokens($push_tokens)
+    {
+
+
+        if (!is_null($push_tokens) && (count($push_tokens) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $push_tokens when calling RemoveMembersRequest., number of items must be greater than or equal to 0.');
+        }
+        $this->container['push_tokens'] = $push_tokens;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * PrivacyId
+ * MetricTimelineDataInner
  *
  * PHP version 7.3
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Klaviyo\ObjectSerializer;
 
 /**
- * PrivacyId Class Doc Comment
+ * MetricTimelineDataInner Class Doc Comment
  *
  * @category Class
  * @package  Klaviyo
@@ -42,7 +42,7 @@ use \Klaviyo\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
+class MetricTimelineDataInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'privacy_id';
+    protected static $openAPIModelName = 'metric_timeline_data_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,15 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'person_id' => 'string'
+        'object' => 'string',
+        'id' => 'string',
+        'statistic_id' => 'string',
+        'timestamp' => 'int',
+        'event_name' => 'string',
+        'event_properties' => '\Klaviyo\Model\MetricTimelineDataInnerEventProperties',
+        'datetime' => 'string',
+        'uuid' => 'string',
+        'person' => '\Klaviyo\Model\MetricTimelineDataInnerPerson'
     ];
 
     /**
@@ -70,7 +78,15 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'person_id' => null
+        'object' => null,
+        'id' => null,
+        'statistic_id' => null,
+        'timestamp' => null,
+        'event_name' => null,
+        'event_properties' => null,
+        'datetime' => null,
+        'uuid' => null,
+        'person' => null
     ];
 
     /**
@@ -100,7 +116,15 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'person_id' => 'person_id'
+        'object' => 'object',
+        'id' => 'id',
+        'statistic_id' => 'statistic_id',
+        'timestamp' => 'timestamp',
+        'event_name' => 'event_name',
+        'event_properties' => 'event_properties',
+        'datetime' => 'datetime',
+        'uuid' => 'uuid',
+        'person' => 'person'
     ];
 
     /**
@@ -109,7 +133,15 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'person_id' => 'setPersonId'
+        'object' => 'setObject',
+        'id' => 'setId',
+        'statistic_id' => 'setStatisticId',
+        'timestamp' => 'setTimestamp',
+        'event_name' => 'setEventName',
+        'event_properties' => 'setEventProperties',
+        'datetime' => 'setDatetime',
+        'uuid' => 'setUuid',
+        'person' => 'setPerson'
     ];
 
     /**
@@ -118,7 +150,15 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'person_id' => 'getPersonId'
+        'object' => 'getObject',
+        'id' => 'getId',
+        'statistic_id' => 'getStatisticId',
+        'timestamp' => 'getTimestamp',
+        'event_name' => 'getEventName',
+        'event_properties' => 'getEventProperties',
+        'datetime' => 'getDatetime',
+        'uuid' => 'getUuid',
+        'person' => 'getPerson'
     ];
 
     /**
@@ -178,7 +218,15 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['person_id'] = $data['person_id'] ?? null;
+        $this->container['object'] = $data['object'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
+        $this->container['statistic_id'] = $data['statistic_id'] ?? null;
+        $this->container['timestamp'] = $data['timestamp'] ?? null;
+        $this->container['event_name'] = $data['event_name'] ?? null;
+        $this->container['event_properties'] = $data['event_properties'] ?? null;
+        $this->container['datetime'] = $data['datetime'] ?? null;
+        $this->container['uuid'] = $data['uuid'] ?? null;
+        $this->container['person'] = $data['person'] ?? null;
     }
 
     /**
@@ -206,25 +254,217 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets person_id
+     * Gets object
      *
      * @return string|null
      */
-    public function getPersonId()
+    public function getObject()
     {
-        return $this->container['person_id'];
+        return $this->container['object'];
     }
 
     /**
-     * Sets person_id
+     * Sets object
      *
-     * @param string|null $person_id person_id
+     * @param string|null $object object
      *
      * @return self
      */
-    public function setPersonId($person_id)
+    public function setObject($object)
     {
-        $this->container['person_id'] = $person_id;
+        $this->container['object'] = $object;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets statistic_id
+     *
+     * @return string|null
+     */
+    public function getStatisticId()
+    {
+        return $this->container['statistic_id'];
+    }
+
+    /**
+     * Sets statistic_id
+     *
+     * @param string|null $statistic_id statistic_id
+     *
+     * @return self
+     */
+    public function setStatisticId($statistic_id)
+    {
+        $this->container['statistic_id'] = $statistic_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets timestamp
+     *
+     * @return int|null
+     */
+    public function getTimestamp()
+    {
+        return $this->container['timestamp'];
+    }
+
+    /**
+     * Sets timestamp
+     *
+     * @param int|null $timestamp timestamp
+     *
+     * @return self
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->container['timestamp'] = $timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Gets event_name
+     *
+     * @return string|null
+     */
+    public function getEventName()
+    {
+        return $this->container['event_name'];
+    }
+
+    /**
+     * Sets event_name
+     *
+     * @param string|null $event_name event_name
+     *
+     * @return self
+     */
+    public function setEventName($event_name)
+    {
+        $this->container['event_name'] = $event_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets event_properties
+     *
+     * @return \Klaviyo\Model\MetricTimelineDataInnerEventProperties|null
+     */
+    public function getEventProperties()
+    {
+        return $this->container['event_properties'];
+    }
+
+    /**
+     * Sets event_properties
+     *
+     * @param \Klaviyo\Model\MetricTimelineDataInnerEventProperties|null $event_properties event_properties
+     *
+     * @return self
+     */
+    public function setEventProperties($event_properties)
+    {
+        $this->container['event_properties'] = $event_properties;
+
+        return $this;
+    }
+
+    /**
+     * Gets datetime
+     *
+     * @return string|null
+     */
+    public function getDatetime()
+    {
+        return $this->container['datetime'];
+    }
+
+    /**
+     * Sets datetime
+     *
+     * @param string|null $datetime datetime
+     *
+     * @return self
+     */
+    public function setDatetime($datetime)
+    {
+        $this->container['datetime'] = $datetime;
+
+        return $this;
+    }
+
+    /**
+     * Gets uuid
+     *
+     * @return string|null
+     */
+    public function getUuid()
+    {
+        return $this->container['uuid'];
+    }
+
+    /**
+     * Sets uuid
+     *
+     * @param string|null $uuid uuid
+     *
+     * @return self
+     */
+    public function setUuid($uuid)
+    {
+        $this->container['uuid'] = $uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets person
+     *
+     * @return \Klaviyo\Model\MetricTimelineDataInnerPerson|null
+     */
+    public function getPerson()
+    {
+        return $this->container['person'];
+    }
+
+    /**
+     * Sets person
+     *
+     * @param \Klaviyo\Model\MetricTimelineDataInnerPerson|null $person person
+     *
+     * @return self
+     */
+    public function setPerson($person)
+    {
+        $this->container['person'] = $person;
 
         return $this;
     }

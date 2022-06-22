@@ -1,6 +1,6 @@
 <?php
 /**
- * PrivacyId
+ * RenderedTemplateData
  *
  * PHP version 7.3
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Klaviyo\ObjectSerializer;
 
 /**
- * PrivacyId Class Doc Comment
+ * RenderedTemplateData Class Doc Comment
  *
  * @category Class
  * @package  Klaviyo
@@ -42,7 +42,7 @@ use \Klaviyo\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
+class RenderedTemplateData implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'privacy_id';
+    protected static $openAPIModelName = 'rendered_template_data';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,8 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'person_id' => 'string'
+        'html' => 'string',
+        'text' => 'string'
     ];
 
     /**
@@ -70,7 +71,8 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'person_id' => null
+        'html' => null,
+        'text' => null
     ];
 
     /**
@@ -100,7 +102,8 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'person_id' => 'person_id'
+        'html' => 'html',
+        'text' => 'text'
     ];
 
     /**
@@ -109,7 +112,8 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'person_id' => 'setPersonId'
+        'html' => 'setHtml',
+        'text' => 'setText'
     ];
 
     /**
@@ -118,7 +122,8 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'person_id' => 'getPersonId'
+        'html' => 'getHtml',
+        'text' => 'getText'
     ];
 
     /**
@@ -178,7 +183,8 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['person_id'] = $data['person_id'] ?? null;
+        $this->container['html'] = $data['html'] ?? null;
+        $this->container['text'] = $data['text'] ?? null;
     }
 
     /**
@@ -206,25 +212,49 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets person_id
+     * Gets html
      *
      * @return string|null
      */
-    public function getPersonId()
+    public function getHtml()
     {
-        return $this->container['person_id'];
+        return $this->container['html'];
     }
 
     /**
-     * Sets person_id
+     * Sets html
      *
-     * @param string|null $person_id person_id
+     * @param string|null $html html
      *
      * @return self
      */
-    public function setPersonId($person_id)
+    public function setHtml($html)
     {
-        $this->container['person_id'] = $person_id;
+        $this->container['html'] = $html;
+
+        return $this;
+    }
+
+    /**
+     * Gets text
+     *
+     * @return string|null
+     */
+    public function getText()
+    {
+        return $this->container['text'];
+    }
+
+    /**
+     * Sets text
+     *
+     * @param string|null $text text
+     *
+     * @return self
+     */
+    public function setText($text)
+    {
+        $this->container['text'] = $text;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * PrivacyId
+ * CampaignTemplate
  *
  * PHP version 7.3
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Klaviyo\ObjectSerializer;
 
 /**
- * PrivacyId Class Doc Comment
+ * CampaignTemplate Class Doc Comment
  *
  * @category Class
  * @package  Klaviyo
@@ -42,7 +42,7 @@ use \Klaviyo\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
+class CampaignTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'privacy_id';
+    protected static $openAPIModelName = 'campaign_template';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,9 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'person_id' => 'string'
+        'object' => 'string',
+        'id' => 'string',
+        'html' => 'string'
     ];
 
     /**
@@ -70,7 +72,9 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'person_id' => null
+        'object' => null,
+        'id' => null,
+        'html' => null
     ];
 
     /**
@@ -100,7 +104,9 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'person_id' => 'person_id'
+        'object' => 'object',
+        'id' => 'id',
+        'html' => 'html'
     ];
 
     /**
@@ -109,7 +115,9 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'person_id' => 'setPersonId'
+        'object' => 'setObject',
+        'id' => 'setId',
+        'html' => 'setHtml'
     ];
 
     /**
@@ -118,7 +126,9 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'person_id' => 'getPersonId'
+        'object' => 'getObject',
+        'id' => 'getId',
+        'html' => 'getHtml'
     ];
 
     /**
@@ -178,7 +188,9 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['person_id'] = $data['person_id'] ?? null;
+        $this->container['object'] = $data['object'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
+        $this->container['html'] = $data['html'] ?? null;
     }
 
     /**
@@ -206,25 +218,73 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets person_id
+     * Gets object
      *
      * @return string|null
      */
-    public function getPersonId()
+    public function getObject()
     {
-        return $this->container['person_id'];
+        return $this->container['object'];
     }
 
     /**
-     * Sets person_id
+     * Sets object
      *
-     * @param string|null $person_id person_id
+     * @param string|null $object object
      *
      * @return self
      */
-    public function setPersonId($person_id)
+    public function setObject($object)
     {
-        $this->container['person_id'] = $person_id;
+        $this->container['object'] = $object;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets html
+     *
+     * @return string|null
+     */
+    public function getHtml()
+    {
+        return $this->container['html'];
+    }
+
+    /**
+     * Sets html
+     *
+     * @param string|null $html html
+     *
+     * @return self
+     */
+    public function setHtml($html)
+    {
+        $this->container['html'] = $html;
 
         return $this;
     }

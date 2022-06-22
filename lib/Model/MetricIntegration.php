@@ -1,6 +1,6 @@
 <?php
 /**
- * PrivacyId
+ * MetricIntegration
  *
  * PHP version 7.3
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Klaviyo\ObjectSerializer;
 
 /**
- * PrivacyId Class Doc Comment
+ * MetricIntegration Class Doc Comment
  *
  * @category Class
  * @package  Klaviyo
@@ -42,7 +42,7 @@ use \Klaviyo\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
+class MetricIntegration implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'privacy_id';
+    protected static $openAPIModelName = 'metric_integration';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,10 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'person_id' => 'string'
+        'object' => 'string',
+        'id' => 'string',
+        'name' => 'string',
+        'category' => 'string'
     ];
 
     /**
@@ -70,7 +73,10 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'person_id' => null
+        'object' => null,
+        'id' => null,
+        'name' => null,
+        'category' => null
     ];
 
     /**
@@ -100,7 +106,10 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'person_id' => 'person_id'
+        'object' => 'object',
+        'id' => 'id',
+        'name' => 'name',
+        'category' => 'category'
     ];
 
     /**
@@ -109,7 +118,10 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'person_id' => 'setPersonId'
+        'object' => 'setObject',
+        'id' => 'setId',
+        'name' => 'setName',
+        'category' => 'setCategory'
     ];
 
     /**
@@ -118,7 +130,10 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'person_id' => 'getPersonId'
+        'object' => 'getObject',
+        'id' => 'getId',
+        'name' => 'getName',
+        'category' => 'getCategory'
     ];
 
     /**
@@ -178,7 +193,10 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['person_id'] = $data['person_id'] ?? null;
+        $this->container['object'] = $data['object'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['category'] = $data['category'] ?? null;
     }
 
     /**
@@ -206,25 +224,97 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets person_id
+     * Gets object
      *
      * @return string|null
      */
-    public function getPersonId()
+    public function getObject()
     {
-        return $this->container['person_id'];
+        return $this->container['object'];
     }
 
     /**
-     * Sets person_id
+     * Sets object
      *
-     * @param string|null $person_id person_id
+     * @param string|null $object object
      *
      * @return self
      */
-    public function setPersonId($person_id)
+    public function setObject($object)
     {
-        $this->container['person_id'] = $person_id;
+        $this->container['object'] = $object;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name name
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets category
+     *
+     * @return string|null
+     */
+    public function getCategory()
+    {
+        return $this->container['category'];
+    }
+
+    /**
+     * Sets category
+     *
+     * @param string|null $category category
+     *
+     * @return self
+     */
+    public function setCategory($category)
+    {
+        $this->container['category'] = $category;
 
         return $this;
     }

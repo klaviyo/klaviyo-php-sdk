@@ -1,6 +1,6 @@
 <?php
 /**
- * PrivacyId
+ * AddMembersRequest
  *
  * PHP version 7.3
  *
@@ -32,9 +32,10 @@ use \ArrayAccess;
 use \Klaviyo\ObjectSerializer;
 
 /**
- * PrivacyId Class Doc Comment
+ * AddMembersRequest Class Doc Comment
  *
  * @category Class
+ * @description The profiles that you would like to add to the list. Each object in the array must have an &#x60;email&#x60; or &#x60;phone_number&#x60;. You can also provide additional properties as key-value pairs.
  * @package  Klaviyo
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -42,7 +43,7 @@ use \Klaviyo\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
+class AddMembersRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +52,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'privacy_id';
+    protected static $openAPIModelName = 'add_members_request';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +60,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'person_id' => 'string'
+        'profiles' => 'array<string,mixed>[]'
     ];
 
     /**
@@ -70,7 +71,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'person_id' => null
+        'profiles' => null
     ];
 
     /**
@@ -100,7 +101,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'person_id' => 'person_id'
+        'profiles' => 'profiles'
     ];
 
     /**
@@ -109,7 +110,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'person_id' => 'setPersonId'
+        'profiles' => 'setProfiles'
     ];
 
     /**
@@ -118,7 +119,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'person_id' => 'getPersonId'
+        'profiles' => 'getProfiles'
     ];
 
     /**
@@ -178,7 +179,7 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['person_id'] = $data['person_id'] ?? null;
+        $this->container['profiles'] = $data['profiles'] ?? null;
     }
 
     /**
@@ -189,6 +190,17 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if ($this->container['profiles'] === null) {
+            $invalidProperties[] = "'profiles' can't be null";
+        }
+        if ((count($this->container['profiles']) > 100)) {
+            $invalidProperties[] = "invalid value for 'profiles', number of items must be less than or equal to 100.";
+        }
+
+        if ((count($this->container['profiles']) < 0)) {
+            $invalidProperties[] = "invalid value for 'profiles', number of items must be greater than or equal to 0.";
+        }
 
         return $invalidProperties;
     }
@@ -206,25 +218,32 @@ class PrivacyId implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets person_id
+     * Gets profiles
      *
-     * @return string|null
+     * @return array<string,mixed>[]
      */
-    public function getPersonId()
+    public function getProfiles()
     {
-        return $this->container['person_id'];
+        return $this->container['profiles'];
     }
 
     /**
-     * Sets person_id
+     * Sets profiles
      *
-     * @param string|null $person_id person_id
+     * @param array<string,mixed>[] $profiles profiles
      *
      * @return self
      */
-    public function setPersonId($person_id)
+    public function setProfiles($profiles)
     {
-        $this->container['person_id'] = $person_id;
+
+        if ((count($profiles) > 100)) {
+            throw new \InvalidArgumentException('invalid value for $profiles when calling AddMembersRequest., number of items must be less than or equal to 100.');
+        }
+        if ((count($profiles) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $profiles when calling AddMembersRequest., number of items must be greater than or equal to 0.');
+        }
+        $this->container['profiles'] = $profiles;
 
         return $this;
     }
