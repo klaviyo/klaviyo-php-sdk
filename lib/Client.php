@@ -5,20 +5,29 @@ use GuzzleHttp\Client as GuzzleClient;
 use Klaviyo\ApiException;
 use Klaviyo\Configuration;
 
-use Klaviyo\API\TrackIdentifyApi;
+use Klaviyo\API\CampaignsApi;
+use Klaviyo\API\DataPrivacyApi;
+use Klaviyo\API\ListsSegmentsApi;
 use Klaviyo\API\MetricsApi;
 use Klaviyo\API\ProfilesApi;
-use Klaviyo\API\ListsSegmentsApi;
-use Klaviyo\API\DataPrivacyApi;
-use Klaviyo\API\CampaignsApi;
 use Klaviyo\API\TemplatesApi;
+use Klaviyo\API\TrackIdentifyApi;
+
+
 
 
 class Client {
     public $api_key = "API_KEY";
-    public $subclient_names = ['TrackIdentify', 'Metrics', 'Profiles', 'ListsSegments', 'DataPrivacy', 'Campaigns', 'Templates'];
     public $wait_seconds;
     public $num_retries;
+    public $Campaigns;
+    public $DataPrivacy;
+    public $ListsSegments;
+    public $Metrics;
+    public $Profiles;
+    public $Templates;
+    public $TrackIdentify;
+    
 
 
     public function __construct($api_key, $num_retries = 3, $wait_seconds = 3) {
@@ -38,14 +47,49 @@ class Client {
         $this->config = clone Configuration::getDefaultConfiguration();
         $this->config->setApiKey('api_key', $this->api_key);
 
-        foreach ($this->subclient_names as $subclient_name) {
-            eval("\$api_instance = new Klaviyo\API\\${subclient_name}Api(new GuzzleHttp\Client(),\$this->config);");
-            
-            $this->$subclient_name = new Subclient(
-                $api_instance,
+        
+        $this->Campaigns = new Subclient(
+                new CampaignsApi(new GuzzleClient(),$this->config),
                 $wait_seconds = 3,
                 $num_retries = 3,
             );
-        }
+        
+        $this->DataPrivacy = new Subclient(
+                new DataPrivacyApi(new GuzzleClient(),$this->config),
+                $wait_seconds = 3,
+                $num_retries = 3,
+            );
+        
+        $this->ListsSegments = new Subclient(
+                new ListsSegmentsApi(new GuzzleClient(),$this->config),
+                $wait_seconds = 3,
+                $num_retries = 3,
+            );
+        
+        $this->Metrics = new Subclient(
+                new MetricsApi(new GuzzleClient(),$this->config),
+                $wait_seconds = 3,
+                $num_retries = 3,
+            );
+        
+        $this->Profiles = new Subclient(
+                new ProfilesApi(new GuzzleClient(),$this->config),
+                $wait_seconds = 3,
+                $num_retries = 3,
+            );
+        
+        $this->Templates = new Subclient(
+                new TemplatesApi(new GuzzleClient(),$this->config),
+                $wait_seconds = 3,
+                $num_retries = 3,
+            );
+        
+        $this->TrackIdentify = new Subclient(
+                new TrackIdentifyApi(new GuzzleClient(),$this->config),
+                $wait_seconds = 3,
+                $num_retries = 3,
+            );
+        
+
     }
 }
