@@ -15,7 +15,15 @@ use Klaviyo\API\TrackIdentifyApi;
 
 
 
-
+/**
+ * @property TrackIdentifyApi $TrackIdentify
+ * @property MetricsApi $Metrics
+ * @property ProfilesApi $Profiles
+ * @property ListsSegmentsApi $ListsSegments
+ * @property DataPrivacyApi $DataPrivacy
+ * @property CampaignsApi $Campaigns
+ * @property TemplatesApi $Templates
+ */
 class Client {
     public $api_key = "API_KEY";
     public $wait_seconds;
