@@ -1,4 +1,14 @@
-# Klaviyo PHP SDK
+# NEW API + SDK
+
+NOTE: we have a NEW PHP SDK to go along with our [new API](https://developers.klaviyo.com/en/reference/api_overview).
+
+We recommend migrating over to our [newest SDK](https://github.com/klaviyo/klaviyo-api-php).
+
+You can read more about our SDK release history and support [here](https://developers.klaviyo.com/en/docs/sdk_overview)
+
+For a comparison between our old and new APIs, check out [this guide](https://developers.klaviyo.com/en/docs/apis_comparison_chart).
+
+## Klaviyo PHP SDK
 
 - SDK version: 1.0.3.20220329
 
