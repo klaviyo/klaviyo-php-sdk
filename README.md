@@ -2,6 +2,8 @@
 
 ## Legacy Notice
 
+This SDK is set to be deprecated + retired on 2024-01-01.
+
 We have a NEW PHP SDK to go along with our [new API](https://developers.klaviyo.com/en/reference/api_overview).
 
 We recommend migrating over to our [newest SDK](https://github.com/klaviyo/klaviyo-api-php).
